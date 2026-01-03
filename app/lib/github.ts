@@ -9,10 +9,12 @@ const github = axios.create({
 
 export async function fetchPRDiff(prUrl: string) {
   const res = await github.get(prUrl);
+  console.log("🔍 PR Diff:", res.data);
   return res.data as string;
 }
 
 export async function postPRComment(commentsUrl: string, body: string) {
+    console.log("🔍 Posting PR Comment:", commentsUrl, body);
     await axios.post(
       commentsUrl,
       { body },
